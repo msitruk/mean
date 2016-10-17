@@ -1,2 +1,2 @@
 # mean
-Project with AngularJS, Node.js, Express.js and MongoDB.
+Project with AngularJS, Node.js, Express.js, MongoDB and Docker.
