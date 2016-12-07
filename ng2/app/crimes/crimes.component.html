@@ -1,0 +1,64 @@
+<div>
+  <sebm-google-map #myMap [latitude]="lat" [longitude]="lng" [zoom]="11">
+    <sebm-google-map-marker *ngFor="let mark of marks" [latitude]="mark[0]" [longitude]="mark[1]"></sebm-google-map-marker>
+  </sebm-google-map>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" id="bs-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Large modal</h4>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="modalData">
+          <p>{{modalData.compnos}}</p>
+          <p>{{modalData.naturecode}}</p>
+          <p>{{modalData.main_crimecode}}</p>
+          <p>{{modalData.reptdistrict}}</p>
+          <p>{{modalData.fromdate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <table *ngIf="asyncData" class="table table-condensed">
+    <thead>
+      <tr>
+        <form #form="ngForm" (ngSubmit)="getPage(1, itemsTotal)">
+        <th>Nombre de crimes à afficher : </th>
+        <th><input class="form-control" type="number" name="page" [(ngModel)]="itemsTotal"></th>
+        <th><button type="submit" class="btn btn-lg btn-block btn-primary">Go !</button></th>
+        <th>{{now}}</th>
+        </form>
+      </tr>
+      <tr>
+        <th>compnos</th>
+        <th>naturecode</th>
+        <th>main_crimecode</th>
+        <th>reptdistrict</th>
+        <th>fromdate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of asyncData | async | paginate: { id: 'server', itemsPerPage: itemTotal, currentPage: p, totalItems: total }" (click)="editModal(item, myMap)" (click)="lgModal.show();">
+        <td>{{item.compnos}}</td>
+        <td>{{item.naturecode}}</td>
+        <td>{{item.main_crimecode}}</td>
+        <td>{{item.reptdistrict}}</td>
+        <td>{{item.fromdate}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <div class="has-text-centered">
+        <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+        <pagination-controls (pageChange)="getPage($event, itemTotal)" id="server"></pagination-controls>
+      </div>
+    </tfoot>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+﻿"_Id_user","Lastname","Firstname","Id_grade","IsValidate","password","email"
+"0","Sitruk","Maxime","1","true","password0","sitruk_m@etna-alternance.net"
+"1","Fatier","Segolene","0","true","password1","fatier_s@etna-alternance.net"
+"2","Laitselart","Pierre","2","true","password2","laitse_p@etna-alternance.net"
+"3","Couturier","Hugo","3","false","password3","coutur_h@etna-altnernance.net"
+"4","Marandiuc","Adrian","4","false","password4","marand_a@etna-alternance.net"

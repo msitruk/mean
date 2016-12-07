@@ -1,0 +1,49 @@
+version: '2'
+services:
+  node-server:
+    image: node:6-slim
+    container_name: node-server
+    ports:
+      - 3002:3000
+    volumes:
+      - ./api:/app/
+    networks:
+      - mean-network
+    working_dir: /app
+    command: npm run start
+
+  mongo:
+    build: ./mongo
+    container_name: mongo
+    ports:
+      - 27017:27017
+    # volumes:
+      # - ./mongo/data/db:/data/db
+    networks:
+      - mean-network
+
+  node-ng2:
+    build: ./ng2
+    container_name: node-ng2-compose
+    ports:
+      - 3003:3000
+    volumes:
+      - ./ng2:/usr/src/ng2
+    networks:
+      - mean-network
+
+  # feed-mongo:
+  #   build: ./feed-mongo
+  #   container_name: feed-mongo
+  #   depends_on:
+  #     - mongo
+  #   # entrypoint: ./feed-mongo/wait-for-it.sh
+  #   networks:
+  #     - mean-network
+
+volumes:
+  mongo-data:
+    driver: local
+
+networks:
+  mean-network:

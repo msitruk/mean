@@ -1,0 +1,21 @@
+<nav class="navbar navbar-inverse" *ngIf="isLogged">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a routerLink="/" routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }" class="navbar-brand">
+                Boston Police Dept.
+            </a>
+        </div>
+
+        <ul id="menu" class="nav navbar-nav">
+            <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+            <li><a routerLink="/crimes" routerLinkActive="active">Crimes</a></li>
+            <li><a routerLink="/new-profile" routerLinkActive="active">New Profile</a></li>
+            <li><a routerLink="/about" routerLinkActive="active" >About</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active" >Private</a></li>
+            <li><a href="/" (click)="logout()">Logout</a></li>
+        </ul>
+
+    </div>
+</nav>

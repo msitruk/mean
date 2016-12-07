@@ -1,0 +1,35 @@
+<div >
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+        <div class="form-content">
+
+          <div class="form-group">
+            <input type="text" name="nom" class="form-control input-underline input-lg" id="" placeholder="Nom" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="prenom" class="form-control input-underline input-lg" id="" placeholder="Prenom" ngModel>
+          </div>         
+
+          <div class="form-group">
+            <label for="sel1" name="grade">Select grade:</label>
+            <select class="form-control" id="sel1">
+              <option>Detective</option>
+              <option>Agent</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="email" class="form-control input-underline input-lg" id="" placeholder="Email" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="password" name="password" class="form-control input-underline input-lg" id="" placeholder="Password" ngModel>
+          </div>
+        </div>
+            <button type="submit" class="btn btn-lg btn-block btn-primary">Valider</button>
+      </form>
+    </div>  
+  </div>
+</div>

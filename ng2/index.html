@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>My Angular App!</title>
+
+    <!-- needed for angular 2 routing -->
+    <base href="/">
+
+    <!-- css -->
+    <!-- load bootstrap and some simple css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>body { padding: 50px 0; }</style>
+    <!-- carousel -->
+    <link rel="stylesheet" type="text/css" href="node_modules/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="node_modules/slick-carousel/slick/slick-theme.css"/>
+
+    <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- load polyfills and angular dependencies -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <!-- load our angular app with systemjs -->
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script src="node_modules/ng2-pagination/dist/ng2-pagination-bundle.js"></script>
+    <script>
+        System.import('app').catch(function(err) { console.error(err); });
+    </script>
+    <!-- carousel -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="node_modules/slick-carousel/slick/slick.min.js"></script>
+</head>
+<body class="container">
+
+    <login></login>
+    <my-app></my-app>
+    
+</body>
+</html>
